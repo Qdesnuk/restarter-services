@@ -1,5 +1,3 @@
-from time import monotonic
-
 from textual.app import App, ComposeResult
 from textual.containers import ScrollableContainer
 from textual.reactive import reactive
@@ -9,39 +7,39 @@ from textual.widgets import Button, Footer, Header, Static
 class NameDisplay(Static):
     """A widget to display name services."""
 
-    start_time = reactive(monotonic)
-    time = reactive(0.0)
-    total = reactive(0.0)
+    # start_time = reactive(monotonic)
+    # time = reactive(0.0)
+    # total = reactive(0.0)
 
     def on_mount(self) -> None:
         """Event handler called when widget is added to the app."""
-        self.update_timer = self.set_interval(1 / 60, self.update_time, pause=True)
+        # self.update_timer = self.set_interval(1 / 60, self.update_time, pause=True)
 
     def update_time(self) -> None:
         """Method to update time to current."""
-        self.time = self.total + (monotonic() - self.start_time)
+        # self.time = self.total + (monotonic() - self.start_time)
 
     def watch_time(self, time: float) -> None:
         """Called when the time attribute changes."""
-        minutes, seconds = divmod(time, 60)
-        hours, minutes = divmod(minutes, 60)
-        self.update(f"{hours:02,.0f}:{minutes:02.0f}:{seconds:05.2f}")
+        # minutes, seconds = divmod(time, 60)
+        # hours, minutes = divmod(minutes, 60)
+        # self.update(f"{hours:02,.0f}:{minutes:02.0f}:{seconds:05.2f}")
 
     def start_watch(self) -> None:
         """Method to start watch service state."""
-        self.start_time = monotonic()
-        self.update_timer.resume()
+        # self.start_time = monotonic()
+        # self.update_timer.resume()
 
     def stop_watch(self):
         """Method to stop watch service state."""
-        self.update_timer.pause()
-        self.total += monotonic() - self.start_time
-        self.time = self.total
+        # self.update_timer.pause()
+        # self.total += monotonic() - self.start_time
+        # self.time = self.total
 
     def restart_service(self):
         """Method to restart service."""
-        self.total = 0
-        self.time = 0
+        # self.total = 0
+        # self.time = 0
 
 
 class Service(Static):
