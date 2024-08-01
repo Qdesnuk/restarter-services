@@ -1,0 +1,53 @@
+RestarterServices {
+    layout: horizontal;
+    background: $boost;
+    height: 5;
+    margin: 1;
+    min-width: 50;
+    padding: 1;
+}
+
+NameDisplay {
+    content-align: center middle;
+    text-opacity: 60%;
+    height: 3;
+}
+
+Button {
+    width: 16;
+}
+
+#start_watch {
+    dock: left;
+}
+
+#stop_watch {
+    dock: left;
+    display: none;
+}
+
+#restart_service {
+    dock: right;
+}
+
+.watch {
+    text-style: bold;
+    background: $success;
+    color: $text;
+}
+
+.watch TimeDisplay {
+    text-opacity: 100%;
+}
+
+.watch #start_watch {
+    display: none
+}
+
+.watch #stop_watch {
+    display: block
+}
+
+.watch #restart_service {
+    visibility: hidden
+}
